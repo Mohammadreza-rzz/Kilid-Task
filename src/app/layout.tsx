@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "../assets/styles/globals.scss";
-import { Header } from "@/view";
+import { Header, MainPageSlider } from "@/view";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,8 +16,8 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Header />
-        {children}
-        <div className="h-screen !bg-red-400 w-screen">1</div>
+        <MainPageSlider />
+        <div className="bg-red-400 max-w-[1260px] mx-auto">{children}</div>
       </body>
     </html>
   );
