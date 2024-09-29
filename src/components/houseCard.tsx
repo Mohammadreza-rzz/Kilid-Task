@@ -9,11 +9,10 @@ interface IProps {}
 
 const HouseCard: React.FC<IProps> = () => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
-  console.log(isHovered, "isHovers");
 
   return (
     <>
-      <div className=" min-h-[500px] max-h-[500px] relative flex flex-col justify-end overflow-hidden">
+      <div className="min-h-[500px] max-h-[500px] relative flex flex-col justify-end overflow-hidden cursor-pointer">
         <motion.div
           onHoverStart={() => setIsHovered(true)}
           onHoverEnd={() => setIsHovered(false)}
@@ -32,7 +31,12 @@ const HouseCard: React.FC<IProps> = () => {
           />
         </motion.div>
 
-        <div className=" bg-red-200 pl-4 z-50 relative">
+        <motion.div
+          initial={{ y: 0 }}
+          animate={{ y: isHovered ? 0 : 30 }}
+          transition={{ type: "spring", duration: 0.01, stiffness: 30 }}
+          className="pl-4 z-50 relative"
+        >
           <h2 className="text-heading_sm text-gray-100 font-sans">
             206 Mount <br /> Olive Road Two
           </h2>
@@ -40,8 +44,8 @@ const HouseCard: React.FC<IProps> = () => {
           <p className="text-paragraph_lg text-gray-100 mt-3">
             click here o view {" >"}{" "}
           </p>
-        </div>
-        <HouseInfoLabel />
+        </motion.div>
+        <HouseInfoLabel isHover={isHovered} />
       </div>
     </>
   );

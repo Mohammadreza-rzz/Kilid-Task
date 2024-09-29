@@ -17,8 +17,6 @@ const MainPageSLider: React.FC<IProps> = () => {
       <Swiper
         loop={true}
         slidesPerView={1}
-        onSlideChange={() => console.log("slide change")}
-        onSwiper={(swiper) => console.log(swiper)}
         speed={1000}
         modules={[Autoplay]}
         autoplay={{
