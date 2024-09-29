@@ -2,6 +2,7 @@
 import React from "react";
 import { cn } from "@/utils";
 import { useFilterValue } from "@/store";
+import { usePathname, useRouter } from "next/navigation";
 
 interface IProps {}
 
