@@ -4,7 +4,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "www.free-css.com",
+        hostname: "media.rightmove.co.uk",
       },
     ],
   },

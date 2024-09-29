@@ -3,9 +3,11 @@ import { cn } from "@/utils";
 
 interface IProps {
   containerClass?: string;
+  type?: string;
+  price?: string;
 }
 
-const Button: React.FC<IProps> = ({ containerClass }) => {
+const Button: React.FC<IProps> = ({ containerClass, type, price }) => {
   return (
     <div
       className={cn(
@@ -13,9 +15,13 @@ const Button: React.FC<IProps> = ({ containerClass }) => {
         containerClass
       )}
     >
-      <h3 className="text-paragraph_xl text-gray-50">RENR</h3>
+      <h3 className="text-paragraph_xl text-gray-50">
+        {!!type ? type : "RENR"}{" "}
+      </h3>
       <span className="w-[2px] h-[20px] bg-gray-50"></span>
-      <p className="text-paragraph_xl text-gray-50">$ 12.000</p>
+      <p className="text-paragraph_xl text-gray-50">
+        $ {!!price ? price : "12,000"}
+      </p>
     </div>
   );
 };

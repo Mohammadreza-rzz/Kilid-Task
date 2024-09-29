@@ -4,13 +4,15 @@ import { motion } from "framer-motion";
 
 interface IProps {
   isHover?: boolean;
+  rooms?: number;
+  bathrooms?: number;
+  garage?: string;
 }
 
-const HouseInfo: React.FC<IProps> = ({ isHover }) => {
-  console.log(isHover, "isHover");
+const HouseInfo: React.FC<IProps> = ({ isHover, rooms, bathrooms, garage }) => {
   return (
     <motion.div
-      initial={{ y: 0 }}
+      initial={{ y: 100 }}
       animate={{ y: isHover ? 0 : 100 }}
       transition={{ type: "spring", duration: 0.01, stiffness: 30 }}
       className="relative w-full bg-green-50 p-2 flex mt-6"
@@ -25,16 +27,18 @@ const HouseInfo: React.FC<IProps> = ({ isHover }) => {
         </p>
       </span>
       <span className="inline-flex flex-col flex-1">
-        <h6>Beds</h6>
-        <p className="text-gray-100 relative mt-1">2</p>
+        <h6>Rooms</h6>
+        <p className="text-gray-100 relative mt-1">{!!rooms ? rooms : 0}</p>
       </span>
       <span className="inline-flex flex-col flex-1">
         <h6>Baths</h6>
-        <p className="text-gray-100 relative mt-1">1</p>
+        <p className="text-gray-100 relative mt-1">
+          {!!bathrooms ? bathrooms : 0}
+        </p>
       </span>
       <span className="inline-flex flex-col flex-1">
         <h6>Garages</h6>
-        <p className="text-gray-100 relative mt-1">1</p>
+        <p className="text-gray-100 relative mt-1">{!!garage ? garage : 0}</p>
       </span>
     </motion.div>
   );

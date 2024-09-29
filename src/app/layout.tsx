@@ -17,7 +17,7 @@ export default function RootLayout({
       <body>
         <Header />
         <MainPageSlider />
-        <div className="bg-red-400 max-w-[1260px] mx-auto">{children}</div>
+        <div className="max-w-[1560px] mx-auto">{children}</div>
       </body>
     </html>
   );
